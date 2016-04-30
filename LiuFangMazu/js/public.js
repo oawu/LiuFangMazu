@@ -27,7 +27,7 @@ $(function () {
     // 設定節點格式
     window.points = window.points.map (function (t) { return new google.maps.LatLng (t.a, t.n); });
 
-    // 初始化媽組
+    // 
     window.mazu = new google.maps.Marker ({
           position: window.points[0],
           draggable: false,
