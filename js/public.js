@@ -3,6 +3,8 @@
  * @copyright   Copyright (c) 2016 OA Wu Design
  */
 
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-75766009-1', 'auto');ga('send', 'pageview');
+
 $(function () {
   // 控制地圖、Marker 移動的函式
   function getUnit (will, now) { var addLat = will.lat () - now.lat (), addLng = will.lng () - now.lng (), aveAdd = ((Math.abs (addLat) + Math.abs (addLng)) / 2), unit = aveAdd < 10 ? aveAdd < 1 ? aveAdd < 0.1 ? aveAdd < 0.01 ? aveAdd < 0.001 ? aveAdd < 0.0001 ? 3 : 6 : 9 : 12 : 15 : 24 : 21,lat = addLat / unit, lng = addLng / unit;if (!((Math.abs (lat) > 0) || (Math.abs (lng) > 0))) return null;return { unit: unit, lat: lat, lng: lng }; }
