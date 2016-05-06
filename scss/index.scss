@@ -20,7 +20,7 @@
 
 .icon-menu:before { content: "\e600"; }
 .icon-home:before { content: "\e601"; }
-.icon-link-external:before { content: "\e605"; }
+.icon-link:before { content: "\e605"; }
 .icon-facebook:before { content: "\e609"; }
 .icon-user:before { content: "\e610"; }
 .icon-down:before { content: "\e61f"; }
@@ -58,6 +58,10 @@ html {
       position: fixed;
     }
   }
+}
+
+a[href^="http://maps.google.com/maps"], a[href^="https://maps.google.com/maps"] {
+  display: none !important;
 }
 
 .gmnoprint {
@@ -145,11 +149,12 @@ html {
 }
 
 #w {
-  $w: 220px;
-  top: 0;
+  $w: 280px;
   left: -$w;
-  display: inline-block;
   width: $w;
+
+  top: 0;
+  display: inline-block;
   height: 100%;
   z-index: 41;
   -webkit-overflow-scrolling: touch;
@@ -163,8 +168,8 @@ html {
 
   div {
     background-color: rgba(223, 55, 43, 1.00);
-    height: 100px;
-    font-size: 21px;
+    height: 130px;
+    font-size: 20px;
     padding-top: 10px;
     
     span {
@@ -228,7 +233,7 @@ html {
   }
 }
 
-#a {
+#a, #j {
   text-align: center;
   font-family: 14px;
   left: calc((100% - 200px) / 2);
@@ -246,7 +251,7 @@ html {
   @include transition(all .3s);
   
   &.h {
-    + #b {
+    + #b, + #k {
       display: none;
     }
     display: none;
@@ -254,19 +259,46 @@ html {
   z-index: 220;
 }
 
-#b {
+#b, #k {
   position: fixed;
   top: 0;
   left: 0;
   display: inline-block;
   width: 100%;
   height: 100%;
-  background-color: rgba(39, 40, 34, .5);
+  background-color: rgba(39, 40, 34, .75);
   z-index: 210;
 }
 
+#j {
+  left: calc((100% - 250px) / 2);
+  top: calc((100% - 85px) / 2);
+  width: 250px;
+  height: 85px;
+  
+  a {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px - 1px;
+    cursor: pointer;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    @include border-radius(50%);
+    @include transition(all .3s);
+    
+    &:hover {
+      color: rgba(255, 255, 255, 1);
+      border: 1px solid rgba(255, 255, 255, 1);
+    }
+  }
+}
 
-.t, .a {
+.t, .a, .p {
   border: 1px solid rgba(39, 40, 34, .4);
   background-color: rgba(255, 255, 255, .8);
   padding: 3px 5px;
@@ -287,11 +319,14 @@ html {
 }
 
 .m {
-  width: 60px;
-  height: 60px;
+  width: 31px;
+  height: 41px;
   img {
     width: 100%;
   }
+}
+.p {
+  width: 140px;
 }
 #d {
   bottom: 10px;
@@ -380,6 +415,7 @@ html {
     cursor: pointer;
     @include overflow-docx3();
     color: rgba(55, 55, 55, .8);
+    text-align: left;
 
     &:after {
       @include icomoon-font() { content: "\e61f"; };
@@ -414,6 +450,7 @@ html {
       height: $oh;
       padding-right: 30px;
       cursor: pointer;
+      text-align: left;
       @include overflow-docx3();
 
       &.c {
@@ -471,6 +508,16 @@ body {
   }
   #i {
     bottom: 43px;
+  }
+
+  #w {
+    $w: 220px;
+    left: -$w;
+    width: $w;
+    div {
+      font-size: 16px;
+      height: 115px;
+    }
   }
   #c {
     &:after {
